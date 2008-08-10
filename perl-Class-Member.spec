@@ -2,7 +2,7 @@
 
 Summary:	Class::Member - A set of modules to make the module developement easier
 Name:		perl-%{real_name}
-Version:	1.5
+Version:	1.6
 Release:	%mkrel 1
 License:	GPL or Artistic
 Group:		Development/Perl
