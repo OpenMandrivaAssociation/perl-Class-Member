@@ -3,7 +3,7 @@
 Summary:	Class::Member - A set of modules to make the module developement easier
 Name:		perl-%{real_name}
 Version:	1.6
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL or Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{real_name}
