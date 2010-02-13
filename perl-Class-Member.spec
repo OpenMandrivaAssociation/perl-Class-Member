@@ -1,28 +1,32 @@
-%define real_name Class-Member
+%define upstream_name    Class-Member
+%define upstream_version 1.6
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Class::Member - A set of modules to make the module developement easier
-Name:		perl-%{real_name}
-Version:	1.6
-Release:	%mkrel 2
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{real_name}
-Source0:	http://search.cpan.org/CPAN/authors/id/O/OP/OPI/%{real_name}-%{version}.tar.bz2
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://search.cpan.org/CPAN/authors/id/O/OP/OPI/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Class::Member - A set of modules to make the module developement
 easier.
 
 %prep
-%setup -q -n %{real_name}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
-make test
+
+%check
+%make test
 
 %install
 rm -rf %{buildroot}
@@ -38,4 +42,3 @@ rm -rf %{buildroot}
 %{perl_vendorlib}/Class/Member.pm
 %{perl_vendorlib}/Class/Member/*.pm
 %{_mandir}/*/*
-
